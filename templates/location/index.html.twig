@@ -21,8 +21,8 @@
                 <td>{{ location.adress }}</td>
                 <td>{{ location.date ? location.date|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('location_show', {'id': location.id}) }}">voir</a>
-                    <a href="{{ path('location_edit', {'id': location.id}) }}">modifier</a>
+                    <a href="{{ path('location_show', {'id': location.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
+                    <a href="{{ path('location_edit', {'id': location.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('location_new') }}">Ajouter un lieu</a>
+    <a class="button2 b-red little rot-135" href="{{ path('location_new') }}">Ajouter lieu</a>
 {% endblock %}

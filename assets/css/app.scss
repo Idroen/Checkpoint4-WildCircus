@@ -4,9 +4,11 @@ body {
     background-color: black;
     color: deeppink;
 }
+
 tbody {
     color: deeppink;
 }
+
 .perf-pic{
     height: 15rem;
 }
@@ -16,5 +18,45 @@ width: 75%;
     margin-left: 12%;
 }
 
+ footer {
+   display: flex;
+     justify-content: center;
+ }
+
+.body-size {
+  min-height: 80vh;
+}
+
+
+.button2 {
+  display: inline-block;
+  font-size: 2em;
+  margin: .5em;
+  padding: .5em;
+  border-radius: 5px;
+  transition: all .5s;
+  filter: hue-rotate(0deg);
+  color: #FFF;
+  text-decoration: none;
+}
+
+.rot-135:hover {
+  filter: hue-rotate(135deg);
+}
+
+.b-red, .b-red:before {
+  background: rgba(234,110,72,1);
+  background: -moz-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(234,110,72,1)), color-stop(100%, rgba(188,26,99,1)));
+  background: -webkit-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea6e48', endColorstr='#bc1a63', GradientType=1 );
+}
+
+.navbar-brand{
+  border-radius: 30px;
+}
 
 

@@ -21,14 +21,22 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td><img class="perf-pic flicker neon" src="{{ performance.photo }}" alt="performance's picture"></td>
+                <td><img class="perf-pic" src="{{ performance.photo }}" alt="performance's picture"></td>
             </tr>
         </tbody>
     </table>
+    <strong>Artiste(s) :</strong>
+    <ul>
+    {% for artist in performance.artists %}
+        <li><a href="{{ path('artist_show', {'id': artist.id}) }}">{{ artist.nickname }}</a></li>
+    {% else %}
+        <li>Aucun artiste trouvé</li>
+     {% endfor %}
+    </ul>
 
-    <a href="{{ path('performance_index') }}">retour</a>
+    <a class="button2 b-red little rot-135" href="{{ path('performance_index') }}">retour</a>
     <br>
-    <a href="{{ path('performance_edit', {'id': performance.id}) }}">modifier</a>
+    <a class="button2 b-red little rot-135" href="{{ path('performance_edit', {'id': performance.id}) }}">modifier</a>
 
     {{ include('performance/_delete_form.html.twig') }}
 {% endblock %}

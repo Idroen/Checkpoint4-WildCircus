@@ -2,10 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Artist;
 use App\Entity\Performance;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class PerformanceType extends AbstractType
 {
@@ -17,8 +19,13 @@ class PerformanceType extends AbstractType
             ->add('photo')
             ->add('category', null, ['choice_label' => 'name'])
             ->add('location', null, ['choice_label' => 'adress'])
-            ->add('artists', null, ['choice_label' => 'nickname'])
-        ;
+            ->add('artists', EntityType::class, [
+                'class' => Artist::class,
+                'choice_label' => 'nickname',
+                'expanded' => true,
+                'multiple' => true,
+                'by_reference' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

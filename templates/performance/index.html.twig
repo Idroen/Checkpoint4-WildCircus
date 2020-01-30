@@ -3,7 +3,7 @@
 {% block title %}Performance index{% endblock %}
 
 {% block body %}
-    <h1>Performance index</h1>
+    <h1>Performances</h1>
 
     <table class="table">
         <thead>
@@ -23,9 +23,8 @@
                 <td>{{ performance.synopsis }}</td>
                 <td><img class="perf-pic" src="{{ performance.photo }}" alt="performance's picture"></td>
                 <td>
-                    <a href="{{ path('performance_show', {'id': performance.id}) }}">voir</a>
-                    <br>
-                    <a href="{{ path('performance_edit', {'id': performance.id}) }}">modifier</a>
+                    <a href="{{ path('performance_show', {'id': performance.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
+                    <a href="{{ path('performance_edit', {'id': performance.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -36,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('performance_new') }}">Créer</a>
+    <a class="button2 b-red little rot-135" href="{{ path('performance_new') }}">Ajouter performance</a>
 {% endblock %}

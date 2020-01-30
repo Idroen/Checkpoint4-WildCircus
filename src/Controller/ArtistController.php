@@ -53,8 +53,10 @@ class ArtistController extends AbstractController
      */
     public function show(Artist $artist): Response
     {
+        $performances = $artist->getPerformance();
         return $this->render('artist/show.html.twig', [
             'artist' => $artist,
+            'performances' => $performances,
         ]);
     }
 
