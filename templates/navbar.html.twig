@@ -6,13 +6,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ path('app_index') }}">Accueil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Performances</a>
+                <a class="nav-link" href="{{ path('performance_index') }}">Performances</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Artistes</a>
+                <a class="nav-link" href="{{ path('category_index') }}">Catégories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('artist_index') }}">Artistes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('location_index') }}">Lieux</a>
             </li>
         </ul>
     </div>

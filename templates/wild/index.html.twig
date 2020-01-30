@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
-{% block body %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-<h1>Bienvenue sur le Wild Circus </h1>
 
-<a href="{{  }}"></a>
-<a href=""></a>
-<a href=""></a>
-</body>
-</html>
+{% block title %}Toutes les performances{% endblock %}
+
+{% block body %}
+    <h1>Toutes les performances : </h1>
+    {% for performance in performances %}
+        <div>
+            <h2>{{ loop.index }} / {{ performance.title }} - Catégorie : {{ performance.category.name }}</h2>
+            <p>{{ performance.synopsis }}</p>
+        </div>
+    {% else %}
+        Aucune performance trouvée.
+    {% endfor %}
+    <a href="{{ path('app_index') }}">
+        Retour à l'accueil
+    </a>
 {% endblock %}

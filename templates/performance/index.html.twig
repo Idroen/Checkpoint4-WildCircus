@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Performance index{% endblock %}
+
+{% block body %}
+    <h1>Performance index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Synopsis</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for performance in performances %}
+            <tr>
+                <td>{{ performance.id }}</td>
+                <td>{{ performance.title }}</td>
+                <td>{{ performance.synopsis }}</td>
+                <td><img class="perf-pic" src="{{ performance.photo }}" alt="performance's picture"></td>
+                <td>
+                    <a href="{{ path('performance_show', {'id': performance.id}) }}">voir</a>
+                    <br>
+                    <a href="{{ path('performance_edit', {'id': performance.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('performance_new') }}">Créer</a>
+{% endblock %}
