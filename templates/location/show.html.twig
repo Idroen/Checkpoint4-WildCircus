@@ -24,7 +24,9 @@
 
     <a class="button2 b-red little rot-135" href="{{ path('location_index') }}">retour</a>
     <br>
-    <a class="button2 b-red little rot-135" href="{{ path('location_edit', {'id': location.id}) }}">modifier</a>
+    {%  if is_granted('ROLE_ADMIN') %}
+        <a class="button2 b-red little rot-135" href="{{ path('location_edit', {'id': location.id}) }}">modifier</a>
+    {% endif %}
 
     {{ include('location/_delete_form.html.twig') }}
 {% endblock %}

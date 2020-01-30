@@ -1,5 +1,7 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 {{ form_start(form) }}
     {{ form_widget(form) }}
+{%  if is_granted('ROLE_ADMIN') %}
     <button class="btn button2 b-red little rot-135">{{ button_label|default('Enregistrer') }}</button>
+{% endif %}
 {{ form_end(form) }}

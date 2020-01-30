@@ -24,7 +24,9 @@
                 <td><img class="perf-pic" src="{{ performance.photo }}" alt="performance's picture"></td>
                 <td>
                     <a href="{{ path('performance_show', {'id': performance.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
-                    <a href="{{ path('performance_edit', {'id': performance.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
+                    {%  if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('performance_edit', {'id': performance.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -35,5 +37,7 @@
         </tbody>
     </table>
 
-    <a class="button2 b-red little rot-135" href="{{ path('performance_new') }}">Ajouter performance</a>
+    {%  if is_granted('ROLE_ADMIN') %}
+        <a class="button2 b-red little rot-135" href="{{ path('performance_new') }}">Ajouter performance</a>
+    {% endif %}
 {% endblock %}

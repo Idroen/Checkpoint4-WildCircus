@@ -22,7 +22,9 @@
                 <td>{{ artist.nickname }}</td>
                 <td>
                     <a href="{{ path('artist_show', {'id': artist.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
+                    {%  if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('artist_edit', {'id': artist.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -32,6 +34,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a  class="button2 b-red little rot-135" href="{{ path('artist_new') }}">Ajouter artiste</a>
+    {%  if is_granted('ROLE_ADMIN') %}
+        <a  class="button2 b-red little rot-135" href="{{ path('artist_new') }}">Ajouter artiste</a>
+    {% endif %}
 {% endblock %}

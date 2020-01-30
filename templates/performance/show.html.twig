@@ -7,36 +7,43 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ performance.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ performance.title }}</td>
-            </tr>
-            <tr>
-                <th>Synopsis</th>
-                <td>{{ performance.synopsis }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td><img class="perf-pic" src="{{ performance.photo }}" alt="performance's picture"></td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ performance.id }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ performance.title }}</td>
+        </tr>
+        <tr>
+            <th>Synopsis</th>
+            <td>{{ performance.synopsis }}</td>
+        </tr>
+        <tr>
+            <th>Photo</th>
+            mak
+        </tr>
         </tbody>
     </table>
     <strong>Artiste(s) :</strong>
     <ul>
-    {% for artist in performance.artists %}
-        <li><a href="{{ path('artist_show', {'id': artist.id}) }}">{{ artist.nickname }}</a></li>
-    {% else %}
-        <li>Aucun artiste trouvé</li>
-     {% endfor %}
+        {% for artist in performance.artists %}
+            <div class="artist-view">
+                <li>
+                    <a class="link-test" href="{{ path('artist_show', {'id': artist.id}) }}">{{ artist.nickname }}</a>
+                </li>
+            </div>
+        {% else %}
+            <li>Aucun artiste trouvé</li>
+        {% endfor %}
     </ul>
 
     <a class="button2 b-red little rot-135" href="{{ path('performance_index') }}">retour</a>
     <br>
-    <a class="button2 b-red little rot-135" href="{{ path('performance_edit', {'id': performance.id}) }}">modifier</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="button2 b-red little rot-135"
+           href="{{ path('performance_edit', {'id': performance.id}) }}">modifier</a>
+    {% endif %}
 
     {{ include('performance/_delete_form.html.twig') }}
 {% endblock %}

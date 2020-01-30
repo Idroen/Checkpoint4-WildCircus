@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-black">
-    <a class="navbar-brand  button2 b-red rot-135" href="#">Wild Circus</a>
+    <a class="navbar-brand  button2 b-red rot-135 flicker neon" href="#">Wild Circus</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,14 @@
             <li class="nav-item">
                 <a class="button2 b-red rot-135" href="{{ path('location_index') }}">Lieux</a>
             </li>
-            <li><img class="nav-pic rot-135" src="https://cdn.website-editor.net/bd5617eef431491f9d72d20d30b521c9/dms3rep/multi/mobile/f7e9aaa0-6c20-4bc4-8790-ad38692f4ede.png" alt="picture of circus karavan"></li>
+            <li class="nav-item">
+                {% if app.user %}
+                    {{ app.user.email }}
+                    <a class="nav-link  text-white" href="{{ path('app_logout') }}"> Se déconnecter</a>
+                {% else %}
+                    <a class="nav-link  text-white" href="{{ path('app_login') }}">Connexion</a>
+                {% endif %}
+            </li>
         </ul>
     </div>
 </nav>
