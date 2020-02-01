@@ -21,7 +21,7 @@
                 <td>{{ performance.id }}</td>
                 <td>{{ performance.title }}</td>
                 <td>{{ performance.synopsis }}</td>
-                <td><img class="perf-pic" src="{{ performance.photo }}" alt="performance's picture"></td>
+                <td><img class="perf-pic neonb" src="{{ performance.photo }}" alt="performance's picture"></td>
                 <td>
                     <a href="{{ path('performance_show', {'id': performance.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
                     {%  if is_granted('ROLE_ADMIN') %}
