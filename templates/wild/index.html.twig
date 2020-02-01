@@ -3,17 +3,41 @@
 {% block title %}Toutes les performances{% endblock %}
 
 {% block body %}
-    <h1>Toutes les performances : </h1>
-    {% for performance in performances %}
-        <div>
-            <h2>{{ loop.index }} / {{ performance.title }} - Catégorie : {{ performance.category.name }}</h2>
-            <div class="little-pic">
-                <img src="{{ performance.photo }}" alt="performance picture">
-                </div>
-            <p>{{ performance.synopsis }}</p>
+    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-homepage" data-ride="carousel"
+         data-interval="5000" data-pause="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-10" src="{{ asset('build/images/ba.jpg') }}"
+                     alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-10" src="{{ asset('build/images/background3.jpg') }}"
+                     alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-10" src="{{ asset('build/images/background4.jpg') }}"
+                     alt="Third slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-10" src="{{ asset('build/images/background5.jpg') }}"
+                     alt="Third slide">
+            </div>
         </div>
-    {% else %}
-        Aucune performance trouvée.
-    {% endfor %}
+    </div>
+    <h1>Toutes les performances : </h1>
+    <div class="prestation-results row border border-dark ml-5 mr-5">
+        {% for performance in performances %}
+            <div class="card m-4">
+                <h2><a class="redirect-link" href="">{{ loop.index }} / {{ performance.title }} - Catégorie
+                        : {{ performance.category.name }}</a></h2>
+                <div>
+                    <img class="perf-pic" src="{{ performance.photo }}" alt="performance picture">
+                </div>
+                <p>{{ performance.synopsis }}</p>
+            </div>
+        {% else %}
+            Aucune performance trouvée.
+        {% endfor %}
 
+    </div>
 {% endblock %}

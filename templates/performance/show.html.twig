@@ -30,7 +30,7 @@
         {% for artist in performance.artists %}
             <div class="artist-view">
                 <li>
-                    <a class="link-test" href="{{ path('artist_show', {'id': artist.id}) }}">{{ artist.nickname }}</a>
+                    <a class="redirect-link" href="{{ path('artist_show', {'id': artist.id}) }}">{{ artist.nickname }}</a>
                 </li>
             </div>
         {% else %}

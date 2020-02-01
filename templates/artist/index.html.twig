@@ -23,7 +23,7 @@
                 <td>
                     <a href="{{ path('artist_show', {'id': artist.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
                     {%  if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('artist_edit', {'id': artist.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
+                    <a class="redirect-link" href="{{ path('artist_edit', {'id': artist.id}) }}"><i class="far fa-edit"></i></a>
                     {% endif %}
                 </td>
             </tr>

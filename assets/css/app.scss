@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: black;
+  background-image: url("../../public/build/images/background.jpg");
     color: deeppink;
 }
 
@@ -104,12 +104,20 @@ width: 75%;
   color: deeppink;
 }
 
-.link-test{
+.redirect-link{
   color: deeppink;
   text-decoration: none;
   list-style: none;
+  &:hover{
+    color: deepskyblue;
+    text-decoration: none;
+  }
 }
-
-.little-pic{
-
+.card {
+  width: 45%;
+  background-color: #0F0F0F ;
+}
+.carousel-homepage{
+  width: 800px;
+  height: 500px;
 }
