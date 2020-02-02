@@ -2,26 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Location;
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class LocationType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('adress')
-            ->add('date')
-            ->add('map')
+            ->add('firstname')
+            ->add('lastname')
+            ->add('email')
+            ->add('message')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Location::class,
+            'data_class' => Contact::class,
         ]);
     }
 }

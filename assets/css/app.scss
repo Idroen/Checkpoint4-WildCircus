@@ -7,7 +7,7 @@ body {
 }
 h1,h2,h3 {
   font-family: 'Mystery Quest';
-
+  margin-left: 12%;
 }
 
 tbody {
@@ -63,6 +63,9 @@ width: 75%;
 
 .navbar-brand{
   border-radius: 30px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
 }
 .nav-pic{
   height: 12vh;
@@ -147,4 +150,21 @@ width: 75%;
   margin-left: 20px;
   margin-right: 20px;
   padding: 2%;
+}
+.table thead th{
+   color: deepskyblue;
+ }
+
+.location-index{
+  width: 25px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+form .form-group{
+  width: 50%;
+  margin-left: 12%;
+}
+.send{
+  margin-left: 12%;
 }

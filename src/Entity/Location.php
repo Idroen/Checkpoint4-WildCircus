@@ -33,6 +33,11 @@ class Location
      */
     private $performance;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $map;
+
     public function __construct()
     {
         $this->performance = new ArrayCollection();
@@ -94,6 +99,18 @@ class Location
                 $performance->setLocation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getMap(): ?string
+    {
+        return $this->map;
+    }
+
+    public function setMap(?string $map): self
+    {
+        $this->map = $map;
 
         return $this;
     }
