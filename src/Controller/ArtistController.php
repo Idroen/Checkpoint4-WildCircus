@@ -39,6 +39,7 @@ class ArtistController extends AbstractController
             $entityManager->persist($artist);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Un artiste a été créé');
             return $this->redirectToRoute('artist_index');
         }
 

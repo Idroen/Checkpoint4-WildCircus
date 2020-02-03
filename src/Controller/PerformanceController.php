@@ -39,6 +39,7 @@ class PerformanceController extends AbstractController
             $entityManager->persist($performance);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Une performance a été créée');
             return $this->redirectToRoute('performance_index');
         }
 
