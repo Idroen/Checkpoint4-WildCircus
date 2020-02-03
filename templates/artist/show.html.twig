@@ -7,10 +7,13 @@
 
     <table class="table">
         <tbody>
+        {% if is_granted('ROLE_ADMIN') %}
+
             <tr>
                 <th>Id</th>
                 <td>{{ artist.id }}</td>
             </tr>
+        {% endif %}
             <tr>
                 <th>Nom</th>
                 <td>{{ artist.name }}</td>

@@ -8,7 +8,9 @@
     <table class="table">
         <thead>
             <tr>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>Id</th>
+                {% endif %}
                 <th>Titre</th>
                 <th>Synopsis</th>
                 <th>Photo</th>
@@ -18,7 +20,9 @@
         <tbody>
         {% for performance in performances %}
             <tr>
+                {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ performance.id }}</td>
+                {% endif %}
                 <td>{{ performance.title }}</td>
                 <td>{{ performance.synopsis }}</td>
                 <td><img class="perf-pic neonb" src="{{ performance.photo }}" alt="performance's picture"></td>

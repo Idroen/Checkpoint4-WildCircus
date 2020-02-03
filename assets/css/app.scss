@@ -85,6 +85,12 @@ width: 75%;
   box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #0ff, 0 0 10px #0ff,
   0 0 10px #0ff, 0 0 10px #0ff, 0 0 10px #0ff, 0 0 10px #0ff,
   0 0 10px #0ff;
+  &:hover{
+    box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px lime, 0 0 10px lime,
+    0 0 10px lime, 0 0 10px lime, 0 0 10px lime, 0 0 10px lime,
+    0 0 10px lime;
+    size: 110%;
+  }
 }
 .neonc {
   box-shadow: 0 0 10px deeppink, 0 0 10px deeppink, 0 0 10px deeppink, 0 0 10px deeppink,
@@ -167,4 +173,17 @@ form .form-group{
 }
 .send{
   margin-left: 12%;
+}
+
+#map {
+  margin:auto;
+  padding:40px;
+  text-align:center;
+}
+.perf-pic2{
+  width: 20%;
+  height: auto;
+  border-radius:50%;
+  margin-left: 12%;
+  margin-bottom: 2%;
 }

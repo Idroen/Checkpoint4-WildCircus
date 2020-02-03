@@ -3,14 +3,17 @@
 {% block title %}Performance{% endblock %}
 
 {% block body %}
+    <div>
     <h1>Performance</h1>
 
     <table class="table">
         <tbody>
+        {% if is_granted('ROLE_ADMIN') %}
         <tr>
             <th>Id</th>
             <td>{{ performance.id }}</td>
         </tr>
+        {% endif %}
         <tr>
             <th>Titre</th>
             <td>{{ performance.title }}</td>
@@ -19,12 +22,14 @@
             <th>Synopsis</th>
             <td>{{ performance.synopsis }}</td>
         </tr>
-        <tr>
-            <th>Photo</th>
-            mak
-        </tr>
+
+
+            <img class="perf-pic2 neonb" src="{{ performance.photo }}" alt="performance picture">
+
+
         </tbody>
     </table>
+    </div>
     <strong>Artiste(s) :</strong>
     <ul>
         {% for artist in performance.artists %}
