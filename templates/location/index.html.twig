@@ -8,7 +8,9 @@
     <table class="table">
         <thead>
             <tr>
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>Id</th>
+                {% endif %}
                 <th>Adresse</th>
                 <th>Date</th>
                 <th>actions</th>
@@ -17,7 +19,9 @@
         <tbody>
         {% for location in locations %}
             <tr>
+                {% if is_granted('ROLE_ADMIN') %}
                 <td>{{ location.id }}</td>
+                {% endif %}
                 <td>{{ location.adress }}</td>
                 <td>{{ location.date ? location.date|date('d-m-Y') : '' }}</td>
                 <td>

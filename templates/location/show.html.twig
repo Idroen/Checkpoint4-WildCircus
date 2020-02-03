@@ -7,10 +7,13 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
+        {% if is_granted('ROLE_ADMIN') %}
+        <tr>
+                    <th>Id</th>
+
                 <td>{{ location.id }}</td>
             </tr>
+        {% endif %}
             <tr>
                 <th>Adresse</th>
                 <td>{{ location.adress }}</td>

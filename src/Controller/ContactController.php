@@ -8,6 +8,8 @@ use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -20,6 +22,7 @@ class ContactController extends AbstractController
      */
     public function index(ContactRepository $contactRepository): Response
     {
+
         return $this->render('contact/index.html.twig', [
             'contacts' => $contactRepository->findAll(),
         ]);
@@ -27,8 +30,12 @@ class ContactController extends AbstractController
 
     /**
      * @Route("/new", name="contact_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param MailerInterface $mailer
+     * @return Response
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function new(Request $request): Response
+    public function new(Request $request, MailerInterface $mailer): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -38,6 +45,17 @@ class ContactController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
+
+            $infos = $form->getData();
+            $email = (new Email())
+                ->from('richard.petit33800@gmail.com')
+                ->to('richard-petit@live.fr')
+                ->subject('Un message vous a été envoyé!')
+                ->html($this->renderView('contact/email/notification.html.twig', [
+                    'infos' => $infos
+                ]));
+
+            $mailer->send($email);
 
             return $this->redirectToRoute('contact_index');
         }

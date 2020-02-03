@@ -1,0 +1,14 @@
+{% block body %}
+    <style>
+        img {
+            max-width: 50%;
+        }
+    </style>
+    <h2>Vous avez reçu un email de contact de: {{ infos.email }}</h2>
+
+    <p>{{ infos.firstname }} {{ infos.lastname }} vous a envoyé:</p>
+    <br>
+    <p>{{ infos.message }}</p>
+
+
+{% endblock %}

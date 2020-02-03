@@ -20,13 +20,13 @@
             <li class="nav-item">
                 <a class="button2 b-red rot-135" href="{{ path('artist_index') }}">Artistes</a>
             </li>
-            {% if is_granted('ROLE_ADMIN') %}
+
             <li class="nav-item">
                 <a class="button2 b-red rot-135" href="{{ path('location_index') }}">Lieux</a>
             </li>
-            {% endif %}
+
             <li class="nav-item">
-                <a class="button2 b-red rot-135" href="{{ path('contact_index') }}">Contact</a>
+                <a class="button2 b-red rot-135" href="{{ path('contact_new') }}">Contact</a>
             </li>
             {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
