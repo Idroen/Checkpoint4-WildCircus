@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-black">
-    <a class="navbar-brand  button2 b-red rot-135 flicker neon" href="#">Wild Circus</a>
+    <a class="navbar-brand  button2 b-red rot-135 flicker neon" href="{{ path('app_index') }}">Wild Circus</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -28,6 +28,7 @@
             <li class="nav-item">
                 <a class="button2 b-red rot-135" href="{{ path('contact_index') }}">Contact</a>
             </li>
+            {% if is_granted('ROLE_ADMIN') %}
             <li class="nav-item">
                 {% if app.user %}
                     {{ app.user.email }}
@@ -36,6 +37,7 @@
                     <a class="nav-link  text-white" href="{{ path('app_login') }}">Connexion</a>
                 {% endif %}
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
