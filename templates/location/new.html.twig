@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau lieu{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un lieu</h1>
+
+    {{ include('location/_form.html.twig') }}
+
+    <a class="button2 b-red little rot-135" href="{{ path('location_index') }}">retour</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+    <h1>Nous contacter</h1>
+
+    <form>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last name">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Adresse email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Votre message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <a class="button2 b-red little rot-135 send" href="{{ path('app_index') }}">Envoyer le message</a>
+    </form>
+{% endblock %}

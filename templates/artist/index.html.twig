@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artist index{% endblock %}
+
+{% block body %}
+    <h1>Artistes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>Id</th>
+                {% endif %}
+                <th>Nom</th>
+                <th>Nom de scène</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>{{ artist.id }}</td>
+                {% endif %}
+                <td>{{ artist.name }}</td>
+                <td>{{ artist.nickname }}</td>
+                <td>
+                    <a href="{{ path('artist_show', {'id': artist.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
+                    {%  if is_granted('ROLE_ADMIN') %}
+                    <a class="redirect-link" href="{{ path('artist_edit', {'id': artist.id}) }}"><i class="far fa-edit"></i></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {%  if is_granted('ROLE_ADMIN') %}
+        <a  class="button2 b-red little rot-135" href="{{ path('artist_new') }}">Ajouter artiste</a>
+    {% endif %}
+{% endblock %}

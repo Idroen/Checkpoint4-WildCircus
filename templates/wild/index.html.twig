@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les performances{% endblock %}
+
+{% block body %}
+    <div class="carousel-size">
+        <div id="carouselExampleSlidesOnly" class="carousel slide carousel-homepage" data-ride="carousel"
+             data-interval="5000" data-pause="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-10" src="{{ asset('build/images/ba1.jpg') }}"
+                         alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-10" src="{{ asset('build/images/background3.2.jpg') }}"
+                         alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-10" src="{{ asset('build/images/background4.2.jpg') }}"
+                         alt="Third slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-10" src="{{ asset('build/images/background5.2.jpg') }}"
+                         alt="Fourth slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-10" src="{{ asset('build/images/carousel1.2.jpg') }}"
+                         alt="Fifth slide">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-content neonc">
+        <h1>Toutes les performances : </h1>
+        <div class="prestation-results row border border-dark ml-5 mr-5">
+            {% for performance in performances %}
+                <div class="card m-4">
+                    <h2><a class="redirect-link" href="">{{ loop.index }} / {{ performance.title }} - Catégorie
+                            : {{ performance.category.name }}</a></h2>
+                    <div>
+                        <img class="perf-pic flicker neonb" src="{{ performance.photo }}" alt="performance picture">
+                    </div>
+                    <p class="mt-3">{{ performance.synopsis }}</p>
+                </div>
+            {% else %}
+                Aucune performance trouvée.
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="body-content">
+    <h1>A propos de nous</h1>
+    <p>Cirque centenaire, le Wild Circus doit son succès et sa longévité à des spectacles spectaculaires, innovants et audacieux.
+        Depuis plus de 100 ans, des spectateurs du monde entier sortent de notre chapiteau avec des étoiles dans les yeux.</p>
+    <br>
+    <p> Le Wild Circus, créé par Alphonse Wild en 1918 à Bordeaux, est un cirque familial qui est passé d'un petit cirque national à un cirque de renommée mondiale et compte aujourd'hui parmi ses rangs les plus grands magiciens, acrobates ou dresseurs d'animaux sauvages.</p>
+    </div>
+
+    <h1>Où nous trouver:</h1>
+    <div id=map>
+        <iframe class="neonb" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.0300007762726!2d-0.5630998841951227!3d44.84132238280825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd55262da405554f%3A0x5a26a7039ce944d6!2s9+All%C3%A9e+Serr%2C+33072+Bordeaux!5e0!3m2!1sfr!2sfr!4v1557678385226!5m2!1sfr!2sfr" width="600" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+{% endblock %}

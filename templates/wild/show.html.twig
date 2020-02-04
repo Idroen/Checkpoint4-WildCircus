@@ -1,0 +1,37 @@
+{#{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="media">
+        <img class="align-self-start mr-3 flicker neon" src="{{performance.photo}}" alt="{{ performance.title }} poster">
+        <div class="media-body">
+            <h1 class="mt-0">{{ performance.title }}</h1>
+            <p>Categorie : {{ performance.category.name }}</p>
+            <p> Description: {{ performance.synopsis }}</p>
+        </div>
+    </div>
+
+    <a href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
+
+{% endblock %}#}
+
+{% extends 'base.html.twig' %}
+{% block title %}{{ slug }}{% endblock %}
+
+{% block body %}
+
+    <div class="media">
+        <img class="align-self-start mr-3 flicker neon" src="{{performance.photo}}" alt="{{ performance.title }} photo">
+        <div class="media-body">
+            <h1 class="mt-0">{{ performance.title }}</h1>
+            <p>Catégorie : {{ performance.category.name }}</p>
+            <p>{{ performance.synopsis }}</p>
+        </div>
+    </div>
+
+    <a class="button2 b-red little rot-135" href="{{ path('wild_index') }}">
+        Retour à l'accueil
+    </a>
+
+{% endblock %}

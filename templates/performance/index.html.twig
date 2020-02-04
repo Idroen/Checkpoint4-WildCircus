@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Performance index{% endblock %}
+
+{% block body %}
+    <h1>Performances</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                <th>Id</th>
+                {% endif %}
+                <th>Titre</th>
+                <th>Synopsis</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for performance in performances %}
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                <td>{{ performance.id }}</td>
+                {% endif %}
+                <td>{{ performance.title }}</td>
+                <td>{{ performance.synopsis }}</td>
+                <td><img class="perf-pic neonb" src="{{ performance.photo }}" alt="performance's picture"></td>
+                <td>
+                    <a href="{{ path('performance_show', {'id': performance.id}) }}"><i class="far fa-eye" style="color: deeppink"></i></a>
+                    {%  if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('performance_edit', {'id': performance.id}) }}"><i class="far fa-edit" style="color: deeppink"></i></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {%  if is_granted('ROLE_ADMIN') %}
+        <a class="button2 b-red little rot-135" href="{{ path('performance_new') }}">Ajouter performance</a>
+    {% endif %}
+{% endblock %}

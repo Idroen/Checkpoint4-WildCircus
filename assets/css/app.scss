@@ -1,0 +1,189 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Mystery+Quest&display=swap');
+
+body {
+  background-image: url("../../public/build/images/background.jpg");
+    color: deeppink;
+}
+h1,h2,h3 {
+  font-family: 'Mystery Quest';
+  margin-left: 12%;
+}
+
+tbody {
+    color: deeppink;
+}
+
+.perf-pic{
+  border-radius: 10px;
+    height: 15rem;
+}
+
+.table {
+width: 75%;
+    margin-left: 12%;
+}
+
+ footer {
+   display: flex;
+     justify-content: center;
+ }
+
+.body-size {
+  min-height: 80vh;
+}
+
+
+.button2 {
+  display: inline-block;
+  font-size: 2em;
+  margin: .5em;
+  padding: .5em;
+  border-radius: 5px;
+  transition: all .5s;
+  filter: hue-rotate(0deg);
+  color: #FFF;
+  text-decoration: none;
+}
+
+.rot-135:hover {
+  filter: hue-rotate(135deg);
+}
+
+.b-red, .b-red:before {
+  background: rgba(234,110,72,1);
+  background: -moz-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(234,110,72,1)), color-stop(100%, rgba(188,26,99,1)));
+  background: -webkit-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  background: linear-gradient(45deg, rgba(234,110,72,1) 0%, rgba(188,26,99,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea6e48', endColorstr='#bc1a63', GradientType=1 );
+}
+
+.navbar-brand{
+  border-radius: 30px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+.nav-pic{
+  height: 12vh;
+  margin-top: 1vh;
+  margin-left: 4vh;
+}
+
+.flicker {
+  animation: flicker 3s linear infinite 3s;
+}
+.neon {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+  0 0 40px #0ff, 0 0 120px #0ff, 0 0 140px #0ff, 0 0 200px #0ff,
+  0 0 500px #0ff;
+}
+.neonb {
+  box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #0ff, 0 0 10px #0ff,
+  0 0 10px #0ff, 0 0 10px #0ff, 0 0 10px #0ff, 0 0 10px #0ff,
+  0 0 10px #0ff;
+  &:hover{
+    box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px lime, 0 0 10px lime,
+    0 0 10px lime, 0 0 10px lime, 0 0 10px lime, 0 0 10px lime,
+    0 0 10px lime;
+    size: 110%;
+  }
+}
+.neonc {
+  box-shadow: 0 0 10px deeppink, 0 0 10px deeppink, 0 0 10px deeppink, 0 0 10px deeppink,
+  0 0 10px deeppink, 0 0 10px deeppink, 0 0 10px deeppink, 0 0 10px deeppink,
+  0 0 10px deeppink;
+}
+@keyframes flicker {
+  0% {
+    text-shadow: none;
+  }
+  6% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+    0 0 40px #0ff, 0 0 120px #0ff, 0 0 140px #0ff, 0 0 200px #0ff,
+    0 0 500px #0ff;
+  }
+  8% {
+    text-shadow: none;
+  }
+  10% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+    0 0 40px #0ff, 0 0 120px #0ff, 0 0 140px #0ff, 0 0 200px #0ff,
+    0 0 500px #0ff;
+  }
+  12% {
+    text-shadow: none;
+  }
+  14% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff,
+    0 0 40px #0ff, 0 0 120px #0ff, 0 0 140px #0ff, 0 0 200px #0ff,
+    0 0 500px #0ff;
+  }
+}
+
+.artist-views{
+  text-decoration: none;
+  color: deeppink;
+}
+
+.redirect-link{
+  color: deeppink;
+  text-decoration: none;
+  list-style: none;
+  &:hover{
+    color: deepskyblue;
+    text-decoration: none;
+  }
+}
+.card {
+  width: 45%;
+  background-color: #0F0F0F ;
+}
+.carousel-size{
+ max-width: 800px;
+  max-height: 500px;
+  display: flex;
+  justify-content: center;
+  margin-left: 20%;
+  margin-bottom: 50px;
+}
+
+.body-content{
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 2%;
+}
+.table thead th{
+   color: deepskyblue;
+ }
+
+.location-index{
+  width: 25px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+form .form-group{
+  width: 50%;
+  margin-left: 12%;
+}
+.send{
+  margin-left: 12%;
+}
+
+#map {
+  margin:auto;
+  padding:40px;
+  text-align:center;
+}
+.perf-pic2{
+  width: 20%;
+  height: auto;
+  border-radius:50%;
+  margin-left: 12%;
+  margin-bottom: 2%;
+}

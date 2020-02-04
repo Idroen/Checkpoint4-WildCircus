@@ -1,12 +1,38 @@
 <!DOCTYPE html>
+
+
 <html>
     <head>
         <meta charset="UTF-8">
+
+
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
+    {% block navbar %}{% include 'navbar.html.twig' %}{% endblock %}
+
+    {% for label, messages in app.flashes %}
+    {% for message in messages %}
+    <div class="alert alert-{{ label }} m-0">
+        {{ message }}
+
+    </div>
+    {% endfor %}
+    {% endfor %}
+
+    <div class="body-size">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+    </div>
+    <footer>
+        {% block footer %}{% include 'footer.html.twig' %}{% endblock %}
+    </footer>
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
     </body>
+
 </html>
