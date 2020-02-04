@@ -70,6 +70,7 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'La catégorie a été modifiée');
             return $this->redirectToRoute('category_index');
         }
 
@@ -90,6 +91,7 @@ class CategoryController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('danger', 'La catégorie a été supprimée');
         return $this->redirectToRoute('category_index');
     }
 }

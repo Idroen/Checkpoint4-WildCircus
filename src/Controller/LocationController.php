@@ -70,6 +70,7 @@ class LocationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Le lieu a été modifié');
             return $this->redirectToRoute('location_index');
         }
 
@@ -90,6 +91,7 @@ class LocationController extends AbstractController
             $entityManager->flush();
         }
 
+        $this->addFlash('danger', 'Le lieu a été supprimé');
         return $this->redirectToRoute('location_index');
     }
 }

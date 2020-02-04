@@ -70,6 +70,7 @@ class PerformanceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'La performance a été modifiée');
             return $this->redirectToRoute('performance_index');
         }
 
@@ -89,7 +90,7 @@ class PerformanceController extends AbstractController
             $entityManager->remove($performance);
             $entityManager->flush();
         }
-
+        $this->addFlash('danger', 'La performance a été supprimée');
         return $this->redirectToRoute('performance_index');
     }
 }

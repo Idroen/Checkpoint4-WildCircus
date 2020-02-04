@@ -106,6 +106,7 @@ class ContactController extends AbstractController
             $entityManager->flush();
         }
 
+
         return $this->redirectToRoute('contact_index');
     }
 }
